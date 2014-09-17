@@ -6,7 +6,8 @@ require 'json'
 
 require 'pry'
 
-repo_path = 'mapyo/android-training/'
+# repo_path = 'mapyo/android-training/'
+repo_path = 'mapyo/EveryDayRedBook/'
 github_api_url = 'https://api.github.com/repos/'
 commits_path = 'commits/master'
 
@@ -35,13 +36,8 @@ if (/^[0-9]+$/ =~ pull_number)
   pull_title = message.slice(message.index("\n\n") + 2 ... message.length)
   commit_message = pull_title + " " + pull_url
 else
-  print "hoge"
+  commit_message = message
 end
 
 
 print "The most recent commit is #{commit_message} by #{name}."
-
-
-# binding.pry
-
-

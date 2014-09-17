@@ -6,12 +6,18 @@ require 'json'
 
 require 'pry'
 
-# repo_path = 'mapyo/android-training/'
-repo_path = 'mapyo/EveryDayRedBook/'
-github_api_url = 'https://api.github.com/repos/'
+repo_path = ENV['REPO_PATH'] # ex. mapyo/helloworld/
+github_api_url = (ENV['GITHUB_API_URL'] || 'https://api.github.com/repos/')
+github_url = (ENV['GITHUB_URL'] || 'https://github.com/')
+
 commits_path = 'commits/master'
 
-github_url = 'https://github.com/'
+
+# repo_path check
+if repo_path.nil?
+  p 'Set the environment variable of REPO_PATH.'
+  exit
+end
 
 api_url = github_api_url + repo_path + commits_path
 

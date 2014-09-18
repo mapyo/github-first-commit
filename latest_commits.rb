@@ -3,9 +3,6 @@
 require 'json'
 require 'open-uri'
 
-require 'pry'
-
-
 repo_path = ENV['REPO_PATH'] # ex. mapyo/helloworld/
 github_url = (ENV['GHE_URL'] || 'https://github.com/')
 

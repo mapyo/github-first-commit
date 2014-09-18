@@ -14,6 +14,6 @@ $ curl -s https://raw.githubusercontent.com/mapyo/github-first-commit/v1.0/lates
 The most recent commit is [ci skip] ActionView and ActionMailerCHANGELOG docs fixes https://github.com/rails/rails/pull/16953 by Abdelkader Boudih.
 
 #for ghe
-$ curl -s https://raw.githubusercontent.com/mapyo/github-first-commit/v1.0/latest_commits.rb | REPO_PATH=owner/repo/ GHE_URL=http://hostname/ TOKEN=hogehogehogehogehogehogehogehogehogehoge  ruby
+$ curl -s https://raw.githubusercontent.com/mapyo/github-first-commit/v1.0/latest_commits.rb | REPO_PATH=owner/repo/ GHE_URL=http://hostname/ TOKEN=hogehogehogehogehogehogehogehogehogehoge ruby
 The most recent commit is hoge http://hostname/owner/repo/pull/13 by hoge.
 ```

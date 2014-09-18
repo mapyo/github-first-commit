@@ -3,10 +3,18 @@
 require 'json'
 require 'open-uri'
 
+require 'pry'
+
 
 repo_path = ENV['REPO_PATH'] # ex. mapyo/helloworld/
-github_api_url = (ENV['GITHUB_API_URL'] || 'https://api.github.com/') + 'repos/'
-github_url = (ENV['GITHUB_URL'] || 'https://github.com/')
+github_url = (ENV['GHE_URL'] || 'https://github.com/')
+
+if ENV['GHE_URL'].nil?
+  api_url = 'https://api.github.com/repos/'
+else
+  api_url = ENV['GHE_URL'] + 'api/v3/' + 'repos/'
+end
+
 token = ENV['TOKEN']
 
 commits_path = 'commits/master'
@@ -18,14 +26,14 @@ if repo_path.nil?
   exit
 end
 
-api_url = github_api_url + repo_path + commits_path
+url = api_url + repo_path + commits_path
 
 
 
 if token.nil?
-  res = open(api_url).read
+  res = open(url).read
 else
-  res = open(api_url, 'Authorization' => "token #{token}").read
+  res = open(url, 'Authorization' => "token #{token}").read
 end
 
 

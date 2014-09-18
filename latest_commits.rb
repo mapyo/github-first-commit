@@ -10,9 +10,9 @@ repo_path = ENV['REPO_PATH'] # ex. mapyo/helloworld/
 github_url = (ENV['GHE_URL'] || 'https://github.com/')
 
 if ENV['GHE_URL'].nil?
-  api_url = 'https://api.github.com/repos/'
+  github_api_url = 'https://api.github.com/repos/'
 else
-  api_url = ENV['GHE_URL'] + 'api/v3/' + 'repos/'
+  github_api_url = ENV['GHE_URL'] + 'api/v3/' + 'repos/'
 end
 
 token = ENV['TOKEN']
@@ -26,14 +26,14 @@ if repo_path.nil?
   exit
 end
 
-url = api_url + repo_path + commits_path
+api_url = github_api_url + repo_path + commits_path
 
 
 
 if token.nil?
-  res = open(url).read
+  res = open(api_url).read
 else
-  res = open(url, 'Authorization' => "token #{token}").read
+  res = open(api_url, 'Authorization' => "token #{token}").read
 end
 
 

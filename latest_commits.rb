@@ -7,7 +7,7 @@ require 'json'
 require 'pry'
 
 repo_path = ENV['REPO_PATH'] # ex. mapyo/helloworld/
-github_api_url = (ENV['GITHUB_API_URL'] || 'https://api.github.com/repos/')
+github_api_url = (ENV['GITHUB_API_URL'] || 'https://api.github.com/') + 'repos/'
 github_url = (ENV['GITHUB_URL'] || 'https://github.com/')
 
 commits_path = 'commits/master'
